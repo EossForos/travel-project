@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1 class="display-4">
+        Города
+    </h1>
+    <div class="row">
+        <div class="col-md-6">
+            {% for object in cities %}
+                <p>
+                    {{ object.name }}
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
