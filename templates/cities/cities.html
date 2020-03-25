@@ -2,17 +2,71 @@
 
 {% block content %}
 
-    <h1 class="display-4">
-        Города
-    </h1>
-    <div class="row">
-        <div class="col-md-6">
-            {% for object in cities %}
-                <p>
-                    {{ object.name }}
-                </p>
-            {% endfor %}
+    <div class="container">
+        <h1 class="display-4 text-center my-4">
+            Города
+        </h1>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <table class="table table-striped">
+                    <tbody>
+                    {% for object in cities %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'detail' pk=object.pk %}">
+                                    {{ object.name }}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'update' pk=object.pk %}">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        Редактировать
+                                    </button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'delete' pk=object.pk %}">
+                                    <button type="button" class="btn btn-danger btn-sm">
+                                        Удалить
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
 
+        <!-- Pagination -->
+
+        <nav>
+            {% if is_paginated %}
+                <ul class="pagination">
+                    {% if cities.has_previous %}
+                        <li><a href="?page={{ cities.previous_page_number }}">&laquo;</a></li>
+                    {% endif %}
+
+                    {% for i in paginator.page_range %}
+                        <li {% if cities.number == i %} class="active" {% endif %}>
+                            <a href="?page={{ i }}">{{ i }}</a>
+                        </li>
+                    {% endfor %}
+
+                    {% if cities.has_next %}
+                        <li><a href="?page={{ cities.next_page_number }}">&raquo;</a></li>
+                    {% endif %}
+                </ul>
+            {% endif %}
+        </nav>
+
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{% url 'create' %}">
+                    <button type="button" class="btn btn-warning btn-sm">
+                        Добавить новый город
+                    </button>
+                </a>
+            </div>
+        </div>
 {% endblock %}
