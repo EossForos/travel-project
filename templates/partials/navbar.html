@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Cтраница <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'home' %}">Главная<span class="sr-only">(current)</span></a>
             </li>
             <li
                     {% if 'cities' in request.path %}
@@ -16,6 +16,14 @@
                         class="nav-item mr-3"
                     {% endif %}>
                 <a class="nav-link" href="{% url 'cities' %}">Города</a>
+            </li>
+            <li
+                    {% if 'trains' in request.path %}
+                        class="nav-item active mr-3"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}>
+                <a class="nav-link" href="{% url 'trains' %}">Поезда</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"

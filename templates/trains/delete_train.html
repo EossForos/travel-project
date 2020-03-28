@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1 class="display-4">
+        Удалить Поезд
+    </h1>
+    <div class="row mx-auto">
+        <div class="col-md-4">
+            <form action="" method="post">
+                {% csrf_token %}
+                <p>
+                    Вы действительно хотите удалить поезд {{ train.name }} ?
+                </p>
+                <br>
+                <input type="submit" value="Да, удалить !">
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

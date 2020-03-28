@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h1 class="display-4 text-center my-4">
+            Поезда
+        </h1>
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Номер поезда
+                            </th>
+                            <th>
+                                Город отправления
+                            </th>
+                            <th>
+                                Город прибытия
+                            </th>
+                            <th>
+                                Время в пути
+                            </th>
+                            <th>
+                                &nbsp;
+                            </th>
+                            <th>
+                                &nbsp;
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for object in trains %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'detail' pk=object.pk %}">
+                                    {{ object.name }}
+                                </a>
+                            </td>
+                            <td>
+                                    {{ object.departure_city }}
+                            </td>
+                            <td>
+                                    {{ object.city_of_arrival }}
+                            </td>
+                            <td>
+                                    {{ object.travel_time }}
+                            </td>
+                            <td>
+                                <a href="{% url 'update' pk=object.pk %}">
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                        Редактировать
+                                    </button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'delete' pk=object.pk %}">
+                                    <button type="button" class="btn btn-danger btn-sm">
+                                        Удалить
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+
+        <div id="navigation" class="container my-4">
+            <div class="row">
+                <div class="col-md-3 mx-5">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}"
+                                       aria-label="Previous">
+                                        <span aria-hidden="true">
+                                            &laquo;
+                                        </span>
+                                        <span class="sr-only">
+                                            Предыдущая страница
+                                        </span>
+                                    </a>
+                                </li>
+                            {% else %}
+
+                            {% endif %}
+                            {% for page in page_obj.paginator.page_range %}
+                                {% if page == page_obj.number %}
+                                    <li class="page-item active">
+                                        <a class="page-link" href="#"> {{ page }}
+                                            <span class="sr-only">
+                                                (current)
+                                            </span>
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ page }}">
+                                            {{ page }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}"
+                                       aria-label="Next">
+                                    <span aria-hidden="true">
+                                        &raquo;
+                                    </span>
+                                        <span class="sr-only">
+                                        Next
+                                    </span>
+                                    </a>
+                                </li>
+                            {% else %}
+
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{% url 'create' %}">
+                <button type="button" class="btn btn-warning btn-sm">
+                    Добавить новый поезд
+                </button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -2,16 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9028e1a3-3722-4909-ad7f-a60af793b390" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cities/migration/0002_auto_20200324_2217.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cities/migration/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/trains/create_train.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/trains/delete_train.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/trains/detail_train.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/trains/trains.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/trains/update_train.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trains/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trains/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cities/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cities/migrations/0002_auto_20200324_2217.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cities/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cities/migration/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cities/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cities/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cities/cities.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cities/cities.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/travel/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cities/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cities/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/partials/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/partials/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trains/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/trains/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/travel/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +101,7 @@
       <workItem from="1585131337565" duration="21592000" />
       <workItem from="1585314572861" duration="1455000" />
       <workItem from="1585388974969" duration="11922000" />
-      <workItem from="1585416358903" duration="1826000" />
+      <workItem from="1585416358903" duration="8432000" />
     </task>
     <servers />
   </component>
