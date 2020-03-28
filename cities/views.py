@@ -1,5 +1,6 @@
-from django.core.paginator import Paginator
-from django.utils import timezone
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
+from django.http import request
 
 from .models import City
 from django.views.generic.detail import DetailView
@@ -10,18 +11,20 @@ from django.urls import reverse_lazy
 
 
 
-class CityCreate(CreateView):
+class CityCreate(SuccessMessageMixin, CreateView):
     model = City
     form_class = CitiesForm
     template_name = 'cities/create_city.html'
     success_url = reverse_lazy('cities')
+    success_message = 'Город был успешно создан'
 
 
-class CityUpdate(UpdateView):
+class CityUpdate(SuccessMessageMixin, UpdateView):
     model = City
     form_class = CitiesForm
     template_name = 'cities/update_city.html'
     success_url = reverse_lazy('cities')
+    success_message = 'Город был успешно обновлён'
 
 
 
@@ -29,6 +32,10 @@ class CityDelete(DeleteView):
     model = City
     template_name = 'cities/delete_city.html'
     success_url = reverse_lazy('cities')
+
+    def get(self, request, *args, **kwargs):
+        messages.success(request, 'Город был успешно удалён')
+        return self.post(request, *args, **kwargs)
 
 
 
@@ -41,9 +48,8 @@ class CityDetail(DetailView):
 
 class CityList(ListView):
     model = City
+    context_object_name = 'cities'
+    paginate_by = 5
     template_name = 'cities/cities.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context
+

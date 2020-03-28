@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'psycopg2',
     'pages',
     'cities',
+    'trains',
 ]
 
 MIDDLEWARE = [
@@ -75,9 +76,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'travel.wsgi.application'
 
 
-# # Database
-# # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-#
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -133,7 +134,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
-# db settings
+#db settings
 try:
     from .local_settings import *
 except ImportError:
