@@ -13,10 +13,10 @@ class TrainsForm(forms.ModelForm):
                            ))
 
     departure_city = forms.ModelChoiceField(label='Город отправления', queryset=City.objects.all(),
-                                            widget=forms.Select(attrs={'class': 'form_control'}))
+                                            widget=forms.Select(attrs={'class': 'form-control js-example-basic'}))
 
     city_of_arrival = forms.ModelChoiceField(label='Город прибытия', queryset=City.objects.all(),
-                                             widget=forms.Select(attrs={'class': 'form_control'}))
+                                             widget=forms.Select(attrs={'class': 'form-control js-example-basic'}))
 
     travel_time = forms.IntegerField(label='Время в пути',
                                      widget=forms.NumberInput(
