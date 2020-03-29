@@ -39,7 +39,7 @@ class TrainDelete(DeleteView):
 class TrainDetail(DetailView):
     model = Train
     context_object_name = 'object'
-    template_name = 'trains/train_detail.html'
+    template_name = 'trains/detail_train.html'
 
 
 class TrainList(ListView):

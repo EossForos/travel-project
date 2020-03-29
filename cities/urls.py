@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import CityDetail, CityCreate, CityUpdate, CityDelete, CityList
 
+app_name = 'cities'
+
 urlpatterns = [
     path('', CityList.as_view(), name='cities'),
     path('create/', CityCreate.as_view(), name='create'),

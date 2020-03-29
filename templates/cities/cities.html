@@ -12,19 +12,19 @@
                     {% for object in cities %}
                         <tr>
                             <td>
-                                <a href="{% url 'detail' pk=object.pk %}">
+                                <a href="{% url 'cities:detail' pk=object.pk %}">
                                     {{ object.name }}
                                 </a>
                             </td>
                             <td>
-                                <a href="{% url 'update' pk=object.pk %}">
+                                <a href="{% url 'cities:update' pk=object.pk %}">
                                     <button type="button" class="btn btn-primary btn-sm">
                                         Редактировать
                                     </button>
                                 </a>
                             </td>
                             <td>
-                                <a href="{% url 'delete' pk=object.pk %}">
+                                <a href="{% url 'cities:delete' pk=object.pk %}">
                                     <button type="button" class="btn btn-danger btn-sm">
                                         Удалить
                                     </button>
@@ -98,7 +98,7 @@
 
         <div class="row">
             <div class="col-md-6">
-                <a href="{% url 'create' %}">
+                <a href="{% url 'cities:create' %}">
                     <button type="button" class="btn btn-warning btn-sm">
                         Добавить новый город
                     </button>

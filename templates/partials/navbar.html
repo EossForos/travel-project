@@ -12,7 +12,7 @@
                     {% else %}
                         class="nav-item mr-3"
                     {% endif %}>
-                <a class="nav-link" href="{% url 'cities' %}">Города</a>
+                <a class="nav-link" href="{% url 'cities:cities' %}">Города</a>
             </li>
             <li
                     {% if 'trains' in request.path %}
@@ -20,17 +20,16 @@
                     {% else %}
                         class="nav-item mr-3"
                     {% endif %}>
-                <a class="nav-link" href="{% url 'trains' %}">Поезда</a>
+                <a class="nav-link" href="{% url 'trains:trains' %}">Поезда</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Другие Страницы
+                    Добавить
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="{% url 'cities:create' %}">Новый город</a>
+                    <a class="dropdown-item" href="{% url 'trains:create' %}">Новый поезд</a>
                 </div>
             </li>
         </ul>

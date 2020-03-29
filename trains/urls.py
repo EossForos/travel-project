@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import TrainList, TrainCreate, TrainDelete, TrainDetail, TrainUpdate
 
+app_name = 'trains'
+
 urlpatterns = [
     path('', TrainList.as_view(), name='trains'),
     path('create/', TrainCreate.as_view(), name='create'),

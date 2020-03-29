@@ -1,7 +1,5 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
-from django.http import request
-
 from .models import City
 from django.views.generic.detail import DetailView
 from django.views.generic import ListView
@@ -42,6 +40,7 @@ class CityDelete(DeleteView):
 class CityDetail(DetailView):
     model = City
     context_object_name = 'object'
+    success_url = reverse_lazy('cities')
     template_name = 'cities/city_detail.html'
 
 

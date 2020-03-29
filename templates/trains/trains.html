@@ -35,7 +35,7 @@
                     {% for object in trains %}
                         <tr>
                             <td>
-                                <a href="{% url 'detail' pk=object.pk %}">
+                                <a href="{% url 'trains:detail' pk=object.pk %}">
                                     {{ object.name }}
                                 </a>
                             </td>
@@ -49,14 +49,14 @@
                                     {{ object.travel_time }}
                             </td>
                             <td>
-                                <a href="{% url 'update' pk=object.pk %}">
+                                <a href="{% url 'trains:update' pk=object.pk %}">
                                     <button type="button" class="btn btn-primary btn-sm">
                                         Редактировать
                                     </button>
                                 </a>
                             </td>
                             <td>
-                                <a href="{% url 'delete' pk=object.pk %}">
+                                <a href="{% url 'trains:delete' pk=object.pk %}">
                                     <button type="button" class="btn btn-danger btn-sm">
                                         Удалить
                                     </button>
@@ -132,7 +132,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <a href="{% url 'create' %}">
+            <a href="{% url 'trains:create' %}">
                 <button type="button" class="btn btn-warning btn-sm">
                     Добавить новый поезд
                 </button>
