@@ -7,6 +7,14 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
             <li
+                    {% if 'routes_search' in request.path %}
+                        class="nav-item active mr-3"
+                    {% else %}
+                        class="nav-item mr-3"
+                    {% endif %}>
+                <a class="nav-link" href="{% url 'routes_search' %}">Поиск Маршрута</a>
+            </li>
+            <li
                     {% if 'cities' in request.path %}
                         class="nav-item active mr-3"
                     {% else %}

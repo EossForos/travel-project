@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if routes %}
+        <div class="col-md-8 mx-auto">
+            <h3>
+                Маршруты из {{ cities.city_of_arrival }} в {{ cities.departure_city }}
+            </h3>
+            <hr>
+            {% for route in routes %}
+                {% if forloop.first %}
+                    <h5>
+                        Самый короткий маршрут
+                    </h5>
+                {% endif %}
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>
+                            Список поездов
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for train in route.route %}
+                        <tr>
+                            <td>
+                                Поезд № {{ train.name }} , следуйший из {{ train.city_of_arrival }} ,
+                                в {{ train.departure_city }}.
+                                Время в пути {{ train.travel_time }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <p>
+                    Общее время в пути {{ route.total_time }}
+                </p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
